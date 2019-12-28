@@ -1,7 +1,6 @@
 # algorithm
 
 + [array](https://github.com/Kaiyanzheng/algorithm/tree/master/foundation/array)
-
 + [binarySearch](https://github.com/Kaiyanzheng/algorithm/tree/master/foundation/binarySearch)
 
 + [bitMap](https://github.com/Kaiyanzheng/algorithm/tree/master/foundation/bitMap)
