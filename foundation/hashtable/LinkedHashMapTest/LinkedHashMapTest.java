@@ -12,7 +12,7 @@ public class LinkedHashMapTest {
         linkedHashMap.put("3", "1");
         linkedHashMap.put("4", "1");
         print(linkedHashMap);
-        linkedHashMap.get("1"); // 1 最新取用，放到最前面，LRU
+        linkedHashMap.get("1"); // 1 最新取用，放到最前面，LRUCache
         print(linkedHashMap);
     }
 
