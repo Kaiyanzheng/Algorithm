@@ -13,28 +13,30 @@ public class MergeSort {
      * SPACE: O(n)
      *
      * 稳定性：稳定
+     * 315. Count of Smaller Numbers After Self
      */
-    public static int[] mergeSort(int[] nums, int left, int right) {
-        int mid = (left + right) / 2;
-        if (left < right) {
-            mergeSort(nums, left, mid);
-            mergeSort(nums, mid + 1, right);
-            merge(nums, left, mid, right);
+    public static int[] mergeSort(int[] nums, int l, int r) {
+        if (l < r) {
+            int mid = l + (r - l) / 2;
+            mergeSort(nums, l, mid);
+            mergeSort(nums, mid + 1, r);
+            merge(nums, l, mid, r);
         }
+        System.out.println(Arrays.toString(nums));
         return nums;
     }
 
-    public static void merge(int[] nums, int left, int mid, int right) {
-        int n1 = mid - left + 1;
-        int n2 = right - mid;
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+    public static void merge(int[] nums, int l, int mid, int r) {
+        int n1 = mid - l + 1;
+        int n2 = r - mid;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
 
-        for (int i = 0; i < n1; i++) L[i] = nums[left + i];
+        for (int i = 0; i < n1; i++) L[i] = nums[l + i];
         for (int j = 0; j < n2; j++) R[j] = nums[mid + 1 + j];
 
         int i = 0, j = 0; // Initial indexes of first and second sub array
-        int k = left;     // Initial index of merged sub array
+        int k = l;     // Initial index of merged sub array
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) nums[k] = L[i++];
             else nums[k] = R[j++];
@@ -43,7 +45,7 @@ public class MergeSort {
         while (i < n1) nums[k++] = L[i++];
         while (j < n2) nums[k++] = R[j++];
 
-        System.out.println("当前排序结果: " + Arrays.toString(nums));
+        //System.out.println("当前排序结果: " + Arrays.toString(nums));
     }
 
     public static void merge2(int[] nums, int left, int mid, int right) {

@@ -1,6 +1,7 @@
 package foundation.sortAlgorithm;
 
 import java.util.Arrays;
+import java.util.Random;
 
 
 public class QuickSort {
@@ -22,15 +23,15 @@ public class QuickSort {
 
     public static void quickSort (int[] nums, int left, int right) {
         if (left < right) {
-            int pivot = partition(nums, left, right);
-            quickSort(nums, left, pivot - 1);
-            quickSort(nums, pivot + 1, right);
+            int idx = partition(nums, left, right);
+            quickSort(nums, left, idx - 1);
+            quickSort(nums, idx + 1, right);
         }
     }
 
     public static int partition(int[] nums, int left, int right) {
-        int pivotIndex = left;
-        int pivot = nums[pivotIndex];
+        int idx = left; // pivot idx
+        int pivot = nums[idx];
         int l = left + 1;
         int r = right;
         while (l <= r) {
@@ -40,14 +41,14 @@ public class QuickSort {
             if (nums[l] <= pivot) l++;
             if (nums[r] >= pivot) r--;
         }
-        swap(nums, pivotIndex, r);
+        swap(nums, idx, r);
         return r;
     }
 
     public static void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
+        int tmp = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp;
+        nums[j] = tmp;
     }
 
     public static void main(String[] args) {

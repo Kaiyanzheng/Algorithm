@@ -15,7 +15,7 @@ public class ArrayCircularOfQueueImpl<E> implements MyQueue<E> {
     }
 
     public ArrayCircularOfQueueImpl(int capacity) {
-        this.data = (E[]) new Object[capacity];
+        this.data = (E[])new Object[capacity];
         this.head = 0;
         this.tail = 0;
     }

@@ -41,9 +41,19 @@ public class BitMap {
         System.out.println(bitSet.size());
     }
 
-    public static void main(String[] args) {
-        bitSet();
+
+    public static int countDifferentBit(int num1, int num2) {
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            res += (num1 & 1) ^ (num2 & 1);
+            num1 >>= 1;
+            num2 >>= 1;
+        }
+        return res;
     }
 
-
+    public static void main(String[] args) {
+        //bitSet();
+        System.out.println(countDifferentBit(6, 15));
+    }
 }
